@@ -1,0 +1,25 @@
+From cc118dc37da6531ac51f6519c9e5971d25d6fe32 Mon Sep 17 00:00:00 2001
+From: epsilonrt <epsilonrt@gmail.com>
+Date: Fri, 23 Jun 2023 15:14:02 +0200
+Subject: [PATCH 1/2] remove msvc ssize_t typdef
+
+Signed-off-by: epsilonrt <epsilonrt@gmail.com>
+---
+ src/modbus-private.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/modbus-private.h b/src/modbus-private.h
+index 6cd3424..9e6b391 100644
+--- a/src/modbus-private.h
++++ b/src/modbus-private.h
+@@ -14,7 +14,6 @@
+ #else
+ # include "stdint.h"
+ # include <time.h>
+-typedef int ssize_t;
+ #endif
+ // clang-format on
+ #include <config.h>
+-- 
+2.30.2
+

@@ -1,0 +1,30 @@
+From 5272a5807db382f18000b36b02b2027c495b5f99 Mon Sep 17 00:00:00 2001
+From: epsilonrt <epsilonrt@gmail.com>
+Date: Fri, 23 Jun 2023 15:16:35 +0200
+Subject: [PATCH 2/2] exports libmodbus version extern variables
+
+Signed-off-by: epsilonrt <epsilonrt@gmail.com>
+---
+ src/modbus.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/modbus.h b/src/modbus.h
+index 55ef08a..3261899 100644
+--- a/src/modbus.h
++++ b/src/modbus.h
+@@ -150,9 +150,9 @@ enum {
+ #define EMBMDATA    (EMBXGTAR + 5)
+ #define EMBBADSLAVE (EMBXGTAR + 6)
+ 
+-extern const unsigned int libmodbus_version_major;
+-extern const unsigned int libmodbus_version_minor;
+-extern const unsigned int libmodbus_version_micro;
++MODBUS_API extern const unsigned int libmodbus_version_major;
++MODBUS_API extern const unsigned int libmodbus_version_minor;
++MODBUS_API extern const unsigned int libmodbus_version_micro;
+ 
+ typedef struct _modbus modbus_t;
+ 
+-- 
+2.30.2
+
