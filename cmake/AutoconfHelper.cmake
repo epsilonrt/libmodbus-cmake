@@ -1,3 +1,5 @@
+# This file is in public domain. Originally written by Joerg Sonnenberger
+#
 # Helper functions for translating autoconf projects. Several functions
 # are lifted from the Mono sources
 

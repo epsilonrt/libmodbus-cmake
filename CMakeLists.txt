@@ -1,3 +1,7 @@
+# Copyright © 2023 Pascal JEAN, epsilonrt <epsilonrt@gmail.com>
+#
+# SPDX-License-Identifier: BSD-1-Clause
+#
 cmake_minimum_required(VERSION 3.0.0)
 
 # Appends the cmake/modules path to MAKE_MODULE_PATH variable.

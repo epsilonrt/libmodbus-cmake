@@ -1,3 +1,8 @@
+# Copyright © 2023 Pascal JEAN, epsilonrt <epsilonrt@gmail.com>
+#
+# SPDX-License-Identifier: BSD-1-Clause
+#
+# @file tests/CMakeLists.txt 
 
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/unit-test.h.in 
                 ${CMAKE_CURRENT_BINARY_DIR}/unit-test.h @ONLY)

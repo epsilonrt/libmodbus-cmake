@@ -1,4 +1,8 @@
-# Libraries 
+# Copyright © 2023 Pascal JEAN, epsilonrt <epsilonrt@gmail.com>
+#
+# SPDX-License-Identifier: BSD-1-Clause
+#
+# @file src/CMakeLists.txt 
 
 file(GLOB_RECURSE sources  ${LIBMODBUS_SRC_DIR}/*.c)
 add_library(${PROJECT_SHORTNAME} ${sources})
