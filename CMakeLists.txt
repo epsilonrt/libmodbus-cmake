@@ -4,16 +4,11 @@ cmake_minimum_required(VERSION 3.0.0)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" "${CMAKE_CURRENT_BINARY_DIR}" ${CMAKE_MODULE_PATH})
 
 include(GitUtils)
-git_clone(
-  PROJECT_NAME    libmodbus
-  GIT_URL         https://github.com/stephane/libmodbus
-  GIT_BRANCH      master
+git_update_submodules(
+  REPO_PATH ${CMAKE_SOURCE_DIR}
+  RECURSIVE
 )
-if(NOT libmodbus_CLONE_RESULT)
-  message(FATAL_ERROR "Failed to clone libmodbus - ${libmodbus_CLONE_RESULT}")
-endif()
-
-set(LIBMODBUS_DIR ${libmodbus_SOURCE_DIR})
+set(LIBMODBUS_DIR ${CMAKE_SOURCE_DIR}/3rdparty/libmodbus)
 set(LIBMODBUS_SRC_DIR ${LIBMODBUS_DIR}/src)
 
 # Add command to apply and reverse patches

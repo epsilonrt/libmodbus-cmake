@@ -231,11 +231,11 @@ function(git_apply_patch)
   cmake_parse_arguments(
     PARGS
     "QUIET"
-    "PATCH_FILE;REPO_PATH;CLONE_RESULT_VARIABLE"
+    "PATCH_FILE;REPO_PATH"
     ""
     ${ARGN}
   )
-                                                                                                                       # remaining unparsed arguments can be found in PARGS_UNPARSED_ARGUMENTS
+
   if(NOT PARGS_PATCH_FILE)
     message(FATAL_ERROR "You must provide a patch file")
   endif()
@@ -275,3 +275,34 @@ function(git_apply_patch)
       message(STATUS "Patch ${patchname} already applied in ${repo} repository")
   endif()
 endfunction()
+
+function(git_update_submodules)
+  cmake_parse_arguments(
+    PARGS
+    "QUIET"
+    "REPO_PATH"
+    ""
+    ${ARGN}
+  )
+
+  if(NOT PARGS_REPO_PATH)
+    message(FATAL_ERROR "You must provide a repository path")
+  endif()
+
+  get_filename_component(repo ${PARGS_REPO_PATH} NAME)
+
+  if(GIT_FOUND AND EXISTS "${PARGS_REPO_PATH}/.git")
+  # Update submodules as needed
+      option(GIT_SUBMODULE "Check submodules during build" ON)
+      if(GIT_SUBMODULE)
+          message(STATUS "Submodule update")
+          execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
+                          WORKING_DIRECTORY ${PARGS_REPO_PATH}
+                          RESULT_VARIABLE GIT_SUBMOD_RESULT)
+          if(NOT GIT_SUBMOD_RESULT EQUAL "0")
+              message(FATAL_ERROR "git submodule update --init --recursive failed with ${GIT_SUBMOD_RESULT}, please checkout submodules")
+          endif()
+      endif()
+  endif()
+endfunction()
+

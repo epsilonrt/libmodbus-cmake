@@ -1,0 +1,3 @@
+[submodule "3rdparty/libmodbus"]
+	path = 3rdparty/libmodbus
+	url = https://github.com/stephane/libmodbus
