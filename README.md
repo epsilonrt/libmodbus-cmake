@@ -2,6 +2,12 @@
 
 ## Overview
 
+This repository provides the tools to build and package libmodbus using CMake. 
+It also provides a set of patches to correct and modify the original source code.
+
+libmodbus is a library developed and published under the *LGPL v2.1 or later* 
+license by Stéphane Raimbault.
+
 libmodbus is a free software library to send/receive data with a device which
 respects the Modbus protocol. This library can use a serial port or an Ethernet
 connection.
@@ -17,34 +23,14 @@ website contains the latest version of the documentation.
 The library is written in C and designed to run on Linux, Mac OS X, FreeBSD, Embox,
 QNX and Windows.
 
-You can use the library on MCUs with Embox RTOS.
-
 ## Installation
 
-
+TODO
 
 ## Testing
 
-Some tests are provided in *tests* directory, you can freely edit the source
-code to fit your needs (it's Free Software :).
-
-See *tests/README* for a description of each program.
-
-For a quick test of libmodbus, you can run the following programs in two shells:
-
-1. ./unit-test-server
-2. ./unit-test-client
-
-By default, all TCP unit tests will be executed (see --help for options).
-
-It's also possible to run the unit tests with `make check`.
-
+TODO
 
 ## Documentation
 
-You can serve the local documentation with:
-
-```shell
-pip install mkdocs-material
-mkdocs serve
-```
+TODO
